@@ -9,18 +9,20 @@ export class DrywallType {//ecmascript 6 class for drywall types. my thought is 
     getTotal = () => {//this function will return the total board footage for this size
         return this.value * this.amount;
     }
-    // @params: inc: number/null will adjust howmuch the increase function increments, possably not neccisary
+    // @params: inc: number/null will adjust how much the increase function increments, possibly not necessary
     increase = (inc) => {//will increase amount of this size
         if (!inc) {//if inc is not provided, use base incrementAmount
             inc = this.incrementAmount;
         }
-        this.amount = parseInt(this.amount) + parseInt(inc);//this adds  
+        this.amount = parseInt(this.amount) + parseInt(inc);//this adds
     }
-    // @params: inc: number/null = will adjust howmuch to change size
+    // @params: inc: number/null = will adjust how much to change size
     decrease = (inc) => {
         if (!inc) {
             inc = this.incrementAmount;
         }
-        this.amount = parseInt(this.amount) - parseInt(inc);//thsi subtracts
+        if (this.amount ==! 0) {
+            this.amount = parseInt(this.amount) - parseInt(inc);//this subtracts
+          }
     }
 }
