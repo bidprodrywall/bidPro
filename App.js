@@ -8,8 +8,8 @@
  */
 
 import React, { Component } from 'react';//these are imports you need to import things that you want to use
-import { Platform, StyleSheet, View } from 'react-native';
-import { SizeCounter } from './src/components/sizeCounter/sizeCounter';
+import { Platform, StyleSheet } from 'react-native';
+import { AppContainer } from './AppNavigator';
 
 const instructions = Platform.select({//this is cool eventualy we will problably want to use this for things
   ios: 'suck on dezz nuts',
@@ -20,9 +20,7 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <SizeCounter></SizeCounter>
-      </View>
+      <AppContainer />
     );
   }
 }

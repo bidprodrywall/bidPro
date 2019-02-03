@@ -1,7 +1,7 @@
 export class DrywallType {//ecmascript 6 class for drywall types. my thought is eventualy we can allow people to add sizes on the fly
     amount = 0;//the count of how many boards
     incrementAmount = 1;//standerd amount to increment, why add this and not use one; because what if by default user wants to count by fives.
-    cost = 0;// not currently used, but possibly in the futer
+    cost = 0;// not currently used, but possibly in the futere
     constructor(name, value) {//for instantiating a new instance of class
         this.name = name;//display value
         this.value = value;//total footage by board
@@ -21,7 +21,7 @@ export class DrywallType {//ecmascript 6 class for drywall types. my thought is 
         if (!inc) {
             inc = this.incrementAmount;
         }
-        if (this.amount ==! 0) {
+        if (this.amount !== 0) {
             this.amount = parseInt(this.amount) - parseInt(inc);//this subtracts
           }
     }
