@@ -3,8 +3,8 @@ import CounterScreen from './src/screens/counterScreen';
 import SizeSelectorScreen from './src/screens/SizeSelectorScreen';
 
 const AppNavigator = createStackNavigator({
-    SizeCounting: { screen: CounterScreen },
-    SizeSelecting: { screen: SizeSelectorScreen}
+    SizeSelecting: { screen: SizeSelectorScreen },
+    SizeCounting: { screen: CounterScreen }
 });
 const AppContainer = createAppContainer(AppNavigator);
 export { AppContainer };
