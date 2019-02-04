@@ -22,7 +22,7 @@ export class SizeCounterButton extends Component {
     render() {
         return (
             <GestureRecognizer onSwipeLeft={() => this.decrease()}>
-                <Button key={this.state.item.value} onPress={() => {this.increase()}} value={this.state.item.amount} title={this.state.item.name}></Button>
+                <Button key={this.state.item.value} onPress={() => {this.increase()}} value={this.state.item.amount} title={JSON.stringify(this.state.item.name)}></Button>
                 <Text>Count: {this.state.item.amount}</Text>
             </GestureRecognizer>
         )

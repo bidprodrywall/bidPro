@@ -3,10 +3,19 @@ import { StyleSheet, View } from 'react-native';
 import { SizeCounter } from '../components/sizeCounter/sizeCounter';
 
 export default class CounterScreen extends React.Component {
+    constructor (props) {
+        super(props);
+        var navParams = this.getLists();
+        this.state = {typeSizes: navParams};
+    }
+    getLists = () => {//this function retrives the lists from the props
+        const { navigation } = this.props;
+        return {sizes: navigation.getParam('sizes'), types: navigation.getParam('types')};
+    }
     render() {
         return(
             <View style={styles.container}>
-                <SizeCounter></SizeCounter>
+                <SizeCounter props={this.state.typeSizes}></SizeCounter>
             </View>
         )
     }

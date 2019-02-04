@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
+
 //toDo:
 export default class SizeSelectorScreen extends React.Component {//this component will allow users to select sizes that they would like to use for the counter
     constructor(props) {
@@ -34,7 +35,7 @@ export default class SizeSelectorScreen extends React.Component {//this componen
             sizes: [],
             types: []
         }
-        this.state.sizes.map((item) => {
+        this.state.sizes.map((item) => {// once i set up redux we can just pass id's rather than objects
             if (item.isSelected()) {
                 retData.sizes.push({ name: item.name, value: item.getValue() })
             }
@@ -46,10 +47,12 @@ export default class SizeSelectorScreen extends React.Component {//this componen
         })
         return (retData);
     }
+    
     routeToCount = () => {
         var retData = this.getSelectables();
-        console.log(retData);
-        // this.props.navigation.navigate('SizeCounting');
+        // console.log(retData);
+        // this.props.navigation.dispatch(navigateAction);
+        this.props.navigation.navigate('SizeCounting', retData);
     }
     render() {
         return (

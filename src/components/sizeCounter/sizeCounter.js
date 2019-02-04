@@ -3,13 +3,22 @@ import { View } from 'react-native';
 import { DrywallType } from '../universal/drywallType';
 import { SizeCounterButton } from './sizeCounterButton';
 // this component will create buttons from passed in list 
-
 export class SizeCounter extends Component {
     constructor (props) {
         super(props);
-        this.state = {sizes: [new DrywallType('8', 42), new DrywallType('10', 54), new DrywallType('12', 65)]};//temerary manual creation of size list. will set up to be passed in
+        this.state = {sizes: this.createSizes(props.props.sizes), types: props.props.types};
     }
-    renderSizeButtons = () => {
+    componentDidMount() {
+    //component lifecycle hook, i think
+    }
+    createSizes = (array) => {
+        var sizeArray =[];
+        for (let sizeBluePrint of array) {
+            sizeArray.push(new DrywallType(sizeBluePrint.name, sizeBluePrint.value));
+        }
+        return sizeArray;
+    }
+    renderSizeButtons = () => {//once i get redux added in the unike key problem will be solved
         return this.state.sizes.map((itemOne) => {//loop through sizes and add a displayable, functional button for each
             return (
                 <SizeCounterButton myItem={itemOne} />
