@@ -21,7 +21,7 @@ export class SizeCounter extends Component {
     renderSizeButtons = () => {//once i get redux added in the unike key problem will be solved
         return this.state.sizes.map((itemOne) => {//loop through sizes and add a displayable, functional button for each
             return (
-                <SizeCounterButton myItem={itemOne} />
+                <SizeCounterButton key={itemOne.name} myItem={itemOne} />
             )
         })
     }

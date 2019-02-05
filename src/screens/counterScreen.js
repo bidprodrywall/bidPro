@@ -16,7 +16,7 @@ export default class CounterScreen extends React.Component {
     renderSizeLists = () => {
         return this.state.types.map((type) => {
             return (
-                <View style={styles.container}>
+                <View key={type.name} style={styles.container}>
                     <Text style={styles.title}>{type.name}</Text>
                     <SizeCounter sizes={this.state.sizes}></SizeCounter>
                 </View>
