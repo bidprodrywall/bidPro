@@ -6,7 +6,7 @@ import { SizeCounterButton } from './sizeCounterButton';
 export class SizeCounter extends Component {
     constructor (props) {
         super(props);
-        this.state = {sizes: this.createSizes(props.props.sizes), types: props.props.types};
+        this.state = {sizes: this.createSizes(props.sizes)};
     }
     componentDidMount() {
     //component lifecycle hook, i think
