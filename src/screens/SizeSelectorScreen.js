@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-
+//database stuff 
 //toDo:
 export default class SizeSelectorScreen extends React.Component {//this component will allow users to select sizes that they would like to use for the counter
     constructor(props) {
@@ -47,12 +47,36 @@ export default class SizeSelectorScreen extends React.Component {//this componen
         })
         return (retData);
     }
-    
+
     routeToCount = () => {
         var retData = this.getSelectables();
         // console.log(retData);
         // this.props.navigation.dispatch(navigateAction);
         this.props.navigation.navigate('SizeCounting', retData);
+    }
+
+    testDb = () => {
+        // console.dir(db);
+        db.transaction(tx => {
+            tx.executeSql(
+                'SELECT * FROM test_one where 1',
+                (tx, results) => {
+                    var len = results.rows.length;
+                    console.log('len', len);
+                    if (len > 0) {
+                        console.log('responce', results)
+                        //   this.setState({
+                        //     userData: results.rows.item(0),
+                        //   });
+                    } else {
+                        alert('No user found');
+                        //   this.setState({
+                        //     userData: '',
+                        //   });
+                    }
+                }
+            );
+        })
     }
     render() {
         return (
@@ -67,6 +91,7 @@ export default class SizeSelectorScreen extends React.Component {//this componen
                 </View>
                 <Text></Text>
                 <Button title='Start Counting' onPress={() => { this.routeToCount() }}></Button>
+                <Button title='testDbConection' onPress={() => { this.testDb() }}></Button>
             </View>
         )
     }

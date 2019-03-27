@@ -1,7 +1,7 @@
 /**
  * bidPro app
  * note structure is subject to change. once i figure out a structuring convention i like, i'll set it up better
- *  @authors Tanner, Dyllan
+ *  @authors Tanner, Chuck, Dyllan 
  * 
  * @toDo: everything
  * 
